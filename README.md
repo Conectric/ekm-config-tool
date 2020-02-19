@@ -20,10 +20,12 @@ This tool reads a JSON file to configure meters.  When using this tool with Cone
 
 ### Configuring Meter CT Ratios
 
-Once you have configured the `meters.json` file, run the tool to set the meter CT ratios as follows:
+Once you have configured the `meters.json` file, run the tool to set the meter CT ratios as follows (if you are using this tool on the Conectric Gateway then you will need to stop the gateway service first):
 
 ```
 $ npm run setct </path/to>/meters.json
 ```
 
 The tool will loop over each meter that has a CT ratio set in the `meters.json` file, and send the appropriate configuration commands to the meter.
+
+If you are using this tool on the Conectric Gateway then you will need to restart the gateway service now.
