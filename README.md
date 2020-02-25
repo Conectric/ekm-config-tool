@@ -8,7 +8,7 @@ At the moment the following functionality is supported:
 
 ### Setup
 
-This tool requires Node.js 8.9.4 or newer.  To nstall dependencies:
+This tool requires Node.js 8.9.4 or newer.  To install dependencies:
 
 ```
 $ npm install

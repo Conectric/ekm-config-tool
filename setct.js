@@ -26,7 +26,7 @@ const verifyMeterMappings = () => {
     meters: Joi.array().items(Joi.object().keys({
       serialNumber: Joi.string().length(12).required(),
       rs485HubId: Joi.string().length(4).required(),
-      version: Joi.number().integer().min(4).max(4).required(),
+      version: Joi.number().integer().min(3).max(4).required(),
       password: Joi.string().length(8).regex(/[0-9]{8}/).optional(),
       ctRatio: Joi.number().integer().min(100).max(5000).optional()
     }).optional())
@@ -105,7 +105,7 @@ const startNextMeterConfigProcess = (isFirstMeter) => {
     currentTrackingId = 'dddd';
     gateway.sendRS485Request({
       // MESSAGE 1.
-      message: `2F3F${currentMeter.hexSerialNumber}3030210D0A`,
+      message: `2F3F${currentMeter.hexSerialNumber}${currentMeter.version === 4 ? '3030': ''}210D0A`,
       destination: currentMeter.rs485HubId,
       hexEncodePayload: false,
       trackingId: currentTrackingId
